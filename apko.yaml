@@ -1,0 +1,19 @@
+contents:
+  keyring:
+    - https://packages.wolfi.dev/os/wolfi-signing.rsa.pub
+  repositories:
+    - https://packages.wolfi.dev/os
+  packages:
+    - ca-certificates-bundle
+    - dagger=0.10.3
+    - git
+    - jq
+    - wolfi-base
+entrypoint:
+  command: dagger
+cmd: version
+archs:
+  - x86_64
+  - aarch64
+environment:
+  PATH: "/usr/sbin:/sbin:/usr/local/bin:/usr/bin:/bin"
