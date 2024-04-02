@@ -6,6 +6,7 @@ contents:
   packages:
     - ca-certificates-bundle
     - dagger=0.10.3
+    - docker-cli
     - git
     - jq
     - wolfi-base
