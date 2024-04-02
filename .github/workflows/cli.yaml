@@ -39,7 +39,9 @@ jobs:
 
       - name: Grep Dagger Version
         id: dagger_version
-        run: $(grep -Eo 'dagger=(.*)' apko.yaml | cut -d'=' -f2 | xargs -I {} printf "DAGGER_VERSION=%s" {}) >> "$GITHUB_OUTPUT"
+        run: |
+          DAGGER_VERSION=$(grep -Eo 'dagger=(.*)' apko.yaml | cut -d'=' -f2)
+          "DAGGER_VERSION=${DAGGER_VERSION}" >> "$GITHUB_OUTPUT"
 
       - name: Print Version
         run: echo ${{ steps.dagger_version.outputs.DAGGER_VERSION }}
