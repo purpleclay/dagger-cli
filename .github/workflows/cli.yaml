@@ -25,6 +25,7 @@ on:
       - main
     paths:
       - "apko.yaml"
+  workflow_dispatch:
 
 permissions:
   actions: read
