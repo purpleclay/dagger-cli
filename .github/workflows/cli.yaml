@@ -38,7 +38,11 @@ jobs:
           fetch-depth: 0
 
       - name: Grep Dagger Version
-        run: grep -Eo 'dagger=(.*)' apko.yaml | cut -d'=' -f2
+        id: dagger_version
+        run: $(grep -Eo 'dagger=(.*)' apko.yaml | cut -d'=' -f2 | xargs -I {} printf "DAGGER_VERSION=%s" {}) >> "$GITHUB_OUTPUT"
+
+      - name: Print Version
+        run: echo ${{ steps.dagger_version.outputs.DAGGER_VERSION }}
 
       # - name: GHCR Login
       #   uses: docker/login-action@v3
