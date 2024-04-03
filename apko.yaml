@@ -18,3 +18,6 @@ archs:
   - aarch64
 environment:
   PATH: "/usr/sbin:/sbin:/usr/local/bin:/usr/bin:/bin"
+annotations:
+  org.opencontainers.image.source: "https://github.com/purpleclay/dagger-cli"
+  org.opencontainers.image.description: "Use Dagger within your CI pipelines"
