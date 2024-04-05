@@ -1,0 +1,14 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["github>purpleclay/renovate-config"],
+  "customManagers": [
+    {
+      "description": "Patch the version of the Dagger CLI within apko configuration file",
+      "customType": "regex",
+      "fileMatch": ["^apko.yaml$"],
+      "matchStrings": ["dagger=(?<currentValue>.*?)\\n"],
+      "depNameTemplate": "dagger/dagger",
+      "datasourceTemplate": "github-tags"
+    }
+  ]
+}
