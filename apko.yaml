@@ -5,7 +5,7 @@ contents:
     - https://packages.wolfi.dev/os
   packages:
     - ca-certificates-bundle
-    - dagger=0.10.3
+    - dagger=0.11.0
     - docker-cli
     - git
     - jq
