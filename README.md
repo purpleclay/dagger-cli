@@ -4,6 +4,7 @@ Packages the Dagger CLI into an OCI Image for use within your CI. Built upon the
 
 ## Installed Packages
 
+- bash
 - ca-certificates-bundle
 - dagger
 - docker-cli

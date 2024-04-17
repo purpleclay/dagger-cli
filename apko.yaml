@@ -4,6 +4,7 @@ contents:
   repositories:
     - https://packages.wolfi.dev/os
   packages:
+    - bash
     - ca-certificates-bundle
     - dagger=0.11.1
     - docker-cli
