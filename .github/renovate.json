@@ -8,7 +8,8 @@
       "fileMatch": ["^apko.yaml$"],
       "matchStrings": ["dagger=(?<currentValue>.*?)\\n"],
       "depNameTemplate": "dagger/dagger",
-      "datasourceTemplate": "github-tags"
+      "datasourceTemplate": "github-tags",
+      "versioningTemplate": "semver"
     }
   ]
 }
