@@ -51,12 +51,12 @@ jobs:
           echo "DAGGER_VERSION=${DAGGER_VERSION}" >> "$GITHUB_OUTPUT"
 
       - name: Publish Dagger CLI
-        uses: dagger/dagger-for-github@v5
+        uses: dagger/dagger-for-github@v6
         with:
           verb: call
           module: github.com/purpleclay/daggerverse/apko@v0.3.1
           args: load --cfg apko.yaml publish --registry "${{ env.REGISTRY }}" --username "${{ github.repository_owner }}" --password env:GITHUB_TOKEN --ref "${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ steps.dagger_version.outputs.DAGGER_VERSION }}"
           cloud-token: ${{ secrets.DAGGER_CLOUD_TOKEN }}
-          version: latest
+          version: "0.12.5"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
