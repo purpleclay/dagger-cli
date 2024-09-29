@@ -57,6 +57,5 @@ jobs:
           module: github.com/purpleclay/daggerverse/apko@v0.3.1
           args: load --cfg apko.yaml publish --registry "${{ env.REGISTRY }}" --username "${{ github.repository_owner }}" --password env:GITHUB_TOKEN --ref "${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ steps.dagger_version.outputs.DAGGER_VERSION }}"
           cloud-token: ${{ secrets.DAGGER_CLOUD_TOKEN }}
-          version: "0.12.5"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
