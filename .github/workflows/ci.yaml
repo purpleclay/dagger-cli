@@ -1,0 +1,39 @@
+name: ci
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "apko.yaml"
+
+permissions:
+  actions: read
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Git Clone
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Grep Dagger Version
+        id: dagger_version
+        run: |
+          DAGGER_VERSION=$(grep -Eo 'dagger=(.*)' apko.yaml | cut -d'=' -f2)
+          echo "DAGGER_VERSION=${DAGGER_VERSION}" >> "$GITHUB_OUTPUT"
+
+      - name: Build Dagger CLI
+        uses: dagger/dagger-for-github@v7
+        with:
+          verb: call
+          module: github.com/purpleclay/daggerverse/apko@v0.3.1
+          args: load --cfg apko.yaml build --ref "${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ steps.dagger_version.outputs.DAGGER_VERSION }}"
+          cloud-token: ${{ secrets.DAGGER_CLOUD_TOKEN }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
