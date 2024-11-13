@@ -30,7 +30,7 @@ jobs:
           echo "DAGGER_VERSION=${DAGGER_VERSION}" >> "$GITHUB_OUTPUT"
 
       - name: Publish Dagger CLI
-        uses: dagger/dagger-for-github@v6
+        uses: dagger/dagger-for-github@v7
         with:
           verb: call
           module: github.com/purpleclay/daggerverse/apko@v0.3.1
