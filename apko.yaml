@@ -8,7 +8,9 @@ contents:
     - ca-certificates-bundle
     - dagger=0.14.0
     - docker-cli
+    - gh
     - git
+    - glab
     - jq
     - wolfi-base
 entrypoint:
