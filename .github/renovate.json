@@ -1,6 +1,9 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["github>purpleclay/renovate-config"],
+  "extends": [
+    "github>purpleclay/renovate-config",
+    "github>purpleclay/renovate-config//automerge"
+  ],
   "customManagers": [
     {
       "description": "Patch the version of the Dagger CLI within apko configuration file",
