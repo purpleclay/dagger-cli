@@ -6,10 +6,11 @@ contents:
   packages:
     - bash
     - ca-certificates-bundle
-    - dagger=0.14.0
+    - dagger=0.15.0
     - docker-cli
     - gh
     - git
+    - git-credential-oauth
     - glab
     - jq
     - wolfi-base
