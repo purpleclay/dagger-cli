@@ -6,7 +6,7 @@ contents:
   packages:
     - bash
     - ca-certificates-bundle
-    - dagger=0.18.16
+    - dagger=0.18.17
     - docker-cli
     - gh
     - git
